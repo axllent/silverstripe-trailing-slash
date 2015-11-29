@@ -17,9 +17,10 @@ class TrailingSlashExt extends Extension {
 
 		if ($request && $request->isGET()) {
 			$url = $request->getVar('url');
+			$urlPathInfo = pathinfo($url);
 
-			/* ignore Ajax requests and URLs that contain a an extension */
-			if (Director::is_ajax() || isset(pathinfo($url)['extension'])) {
+			/* ignore Ajax requests and URLs that contain an extension */
+			if (Director::is_ajax() || isset($urlPathInfo['extension'])) {
 				return false;
 			}
 
