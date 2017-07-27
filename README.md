@@ -19,6 +19,7 @@ more query parameters are ignored.
 
 - SilverStripe 4.*
 
+For SilverStripe 3, please refer to the [SilverStripe3 branch](https://github.com/axllent/silverstripe-trailing-slash/tree/silverstripe3).
 
 ## Installation and configuration
 
