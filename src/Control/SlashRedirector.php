@@ -31,7 +31,11 @@ class SlashRedirector extends Extension
             $urlPathInfo = pathinfo($requested_url);
 
             // ignore Ajax requests and URLs that contain an extension eg: .jpg
-            if (Director::is_ajax() || isset($urlPathInfo['extension']) || !empty($params)) {
+            if (Director::is_ajax() ||
+                $request->getURL() == 'home' ||
+                isset($urlPathInfo['extension']) ||
+                !empty($params)
+            ) {
                 return false;
             }
 
