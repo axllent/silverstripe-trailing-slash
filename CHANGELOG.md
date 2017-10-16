@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.0.2]
+
+- Switch to silverstripe-vendormodule
+
+
 ## [2.0.1]
 
 - Don't redirect 'home' (endless loop)
