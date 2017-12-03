@@ -1,12 +1,7 @@
 # SilverStripe Trailing Slash
 
-An extension to ensure that a single trailing slash is always added to the URL.
-If a URL is detected with no trailing slash, or ending in multiple slashes, the
-request is redirected.
-
-URLs that accessed via Ajax, contain an extension (eg: .json), or have one or
-more query parameters are ignored.
-
+Ensure that a single trailing slash is always added to the URL. URLs accessed via
+Ajax, contain $_GET vars, or that contain an extension are ignored.
 
 ## Examples
 
