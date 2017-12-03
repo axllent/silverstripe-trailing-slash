@@ -1,3 +1,0 @@
-SilverStripe\CMS\Controllers\ContentController:
-  extensions:
-    - Axllent\TrailingSlash\Control\SlashRedirector

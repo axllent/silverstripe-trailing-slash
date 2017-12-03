@@ -1,0 +1,12 @@
+---
+Name: trailingslashredirector
+After:
+  - requestprocessors
+---
+SilverStripe\Core\Injector\Injector:
+  TrailingSlashRedirector:
+    class: Axllent\TrailingSlash\Middleware\TrailingSlashRedirector
+  SilverStripe\Control\Director:
+    properties:
+      Middlewares:
+        CustomMiddleware: %$TrailingSlashRedirector
