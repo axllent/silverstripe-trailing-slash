@@ -17,7 +17,7 @@ class TrailingSlashRedirector implements HTTPMiddleware
 {
     public function process(HTTPRequest $request, callable $delegate)
     {
-        if ($request && $request->isGET()) {
+        if ($request && ($request->isGET() || $request->isHEAD())) {
             $requested_url = $_SERVER['REQUEST_URI'];
             $expected_url = rtrim(Director::baseURL() . $request->getURL(), '/') . '/';
             $urlPathInfo = pathinfo($requested_url);
