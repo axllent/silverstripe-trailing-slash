@@ -4,7 +4,7 @@ Notable changes to this project will be documented in this file.
 
 ## [2.1.1]
 
-- Remove hardcodec check for 'home'
+- Remove hardcoded check for 'home'
 
 
 ## [2.1.0]
