@@ -18,6 +18,11 @@ class TrailingSlashRedirector implements HTTPMiddleware
     public function process(HTTPRequest $request, callable $delegate)
     {
         if ($request && ($request->isGET() || $request->isHEAD())) {
+            // ignore `admin/` and `dev/`
+            if (preg_match('/^(admin\/|dev\/)/i', $request->getURL())) {
+                return $delegate($request);
+            }
+
             $requested_url = $_SERVER['REQUEST_URI'];
             $expected_url = rtrim(Director::baseURL() . $request->getURL(), '/') . '/';
             $urlPathInfo = pathinfo($requested_url);
@@ -31,6 +36,7 @@ class TrailingSlashRedirector implements HTTPMiddleware
                 $params = $request->getVars();
                 $redirect_url = Controller::join_links($expected_url, '/');
                 $response = new HTTPResponse();
+
                 return $response->redirect($redirect_url, 301);
             }
         }
