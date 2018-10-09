@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.1.2]
+
+- Don't redirect from within `admin/` or `/dev/`
+
+
 ## [2.1.1]
 
 - Remove hardcoded check for 'home'
