@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.1.3]
+
+- Better handling as dev/tasks do not return getURL() value
+
+
 ## [2.1.2]
 
 - Don't redirect from within `admin/` or `/dev/`
