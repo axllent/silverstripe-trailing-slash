@@ -18,8 +18,10 @@ class TrailingSlashRedirector implements HTTPMiddleware
     public function process(HTTPRequest $request, callable $delegate)
     {
         if ($request && ($request->isGET() || $request->isHEAD())) {
-            // ignore `admin/` and `dev/`
-            if (preg_match('/^(admin\/|dev\/)/i', $request->getURL())) {
+            // ignore `admin/` and `dev/` and blank
+            if ($request->getURL() == '' ||
+                preg_match('/^(admin\/|dev\/)/i', $request->getURL())
+            ) {
                 return $delegate($request);
             }
 
