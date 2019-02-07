@@ -7,6 +7,7 @@ use SilverStripe\Control\Director;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Control\HTTPResponse;
 use SilverStripe\Control\Middleware\HTTPMiddleware;
+use SilverStripe\Core\Config\Config;
 
 /**
  * Ensure that a single trailing slash is always added to the URL.
@@ -15,12 +16,29 @@ use SilverStripe\Control\Middleware\HTTPMiddleware;
  */
 class TrailingSlashRedirector implements HTTPMiddleware
 {
+    /**
+     * URLS to ignore
+     * @var array
+     */
+    private static $ignore_paths = [
+        'admin/',
+        'dev/',
+    ];
+
     public function process(HTTPRequest $request, callable $delegate)
     {
+        $ignore_paths = [];
+        $ignore_config = Config::inst()->get(TrailingSlashRedirector::class, 'ignore_paths');
+        foreach ($ignore_config as $iurl) {
+            if ($quoted = preg_quote(ltrim($iurl, '/'), '/')) {
+                array_push($ignore_paths, $quoted);
+            }
+        }
+
         if ($request && ($request->isGET() || $request->isHEAD())) {
-            // ignore `admin/` and `dev/` and blank
+            // skip $ignore_paths and home (`/`)
             if ($request->getURL() == '' ||
-                preg_match('/^(admin\/|dev\/)/i', $request->getURL())
+                preg_match('/^(' . implode($ignore_paths, '|') . ')/i', $request->getURL())
             ) {
                 return $delegate($request);
             }
