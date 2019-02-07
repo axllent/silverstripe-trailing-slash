@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.2.0]
+
+- Add config yaml to skip additional paths
+
+
 ## [2.1.3]
 
 - Better handling as dev/tasks do not return getURL() value
@@ -37,8 +42,3 @@ Notable changes to this project will be documented in this file.
 - Support for SilverStripe 4
 - Different detection logic due to changes in `$request->getURL()`
 - Ignore urls with query parameters
-
-
-## [1.0.0]
-
-- Adopt semantic versioning releases
