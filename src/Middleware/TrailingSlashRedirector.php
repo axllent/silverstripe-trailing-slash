@@ -38,7 +38,7 @@ class TrailingSlashRedirector implements HTTPMiddleware
         if ($request && ($request->isGET() || $request->isHEAD())) {
             // skip $ignore_paths and home (`/`)
             if ($request->getURL() == '' ||
-                preg_match('/^(' . implode($ignore_paths, '|') . ')/i', $request->getURL())
+                preg_match('/^(' . implode('|',$ignore_paths) . ')/i', $request->getURL())
             ) {
                 return $delegate($request);
             }
