@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.2.1]
+
+- Fix deprecation notice on php7.4 (switched params in `implode()` function.)
+
+
 ## [2.2.0]
 
 - Add config yaml to skip additional paths
