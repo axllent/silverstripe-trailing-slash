@@ -68,6 +68,7 @@ class TrailingSlashRedirector implements HTTPMiddleware
             $params = $request->getVars();
 
             if (!Director::is_ajax()
+                && $request->getHeader('User-Agent') != 'silverstripe/staticpublishqueue'
                 && !isset($urlPathInfo['extension'])
                 && empty($params)
                 && !preg_match(
