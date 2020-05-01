@@ -4,7 +4,7 @@ Notable changes to this project will be documented in this file.
 
 ## [2.2.2]
 
-- Add support for `silverstripe/staticpublishqueue` (#11)
+- Add support for `silverstripe/staticpublishqueue` ([link](https://github.com/axllent/silverstripe-trailing-slash/pull/11))
 
 
 ## [2.2.1]
