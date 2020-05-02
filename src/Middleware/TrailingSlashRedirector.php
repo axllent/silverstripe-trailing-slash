@@ -26,6 +26,13 @@ class TrailingSlashRedirector implements HTTPMiddleware
     ];
 
     /**
+     * User-Agents to ignore
+     *
+     * @var array
+     */
+    private static $ignore_agents = [];
+
+    /**
      * Process request
      *
      * @param HTTPRequest $request  HTTP request
@@ -67,8 +74,13 @@ class TrailingSlashRedirector implements HTTPMiddleware
 
             $params = $request->getVars();
 
+            $ignore_agents = Config::inst()->get(TrailingSlashRedirector::class, 'ignore_agents');
+
             if (!Director::is_ajax()
-                && $request->getHeader('User-Agent') != 'silverstripe/staticpublishqueue'
+                && !($ignore_agents && in_array(
+                    $request->getHeader('User-Agent'),
+                    $ignore_agents
+                ))
                 && !isset($urlPathInfo['extension'])
                 && empty($params)
                 && !preg_match(
