@@ -7,14 +7,10 @@ composer require axllent/silverstripe-trailing-slash
 
 ## Caveats
 
-When using the silverstripe/silverstripe-staticpublishqueue module the REQUEST_URI is updated so what's used for the request will be different from what is defined in $_SERVER['REQUEST_URI']. As the REQUEST_URI can no longer be used to determine if a trailing slash is required then it makes more sense to ignore the user agent for staticpublishqueue.
-
-The User agent can be ignored by this module by setting;
+Some modules such as `silverstripe/staticpublishqueue` [override](https://github.com/silverstripe/silverstripe-staticpublishqueue/blob/e58a53ab6ce6f5137014a08c47db681f8fc94294/src/Publisher.php#L82-L99) the `REQUEST_URI` to "snapshot" the pages. This can cause conflicts with silverstripe-trailing-slash. To work around this `silverstripe/staticpublishqueue` has been added to an array of "ignored_agents" that are excluded from redirection. You can edit / update this list by setting:
 
 ```yaml
 Axllent\TrailingSlash\Middleware\TrailingSlashRedirector:
   ignore_agents:
     - 'silverstripe/staticpublishqueue'
 ```
-
-ref; https://github.com/silverstripe/silverstripe-staticpublishqueue/blob/master/src/Publisher.php#L82-L101
