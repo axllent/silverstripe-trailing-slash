@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.2.3]
+
+- Add `silverstripe/staticpublishqueue` to configurable list of ignored user agents
+
+
 ## [2.2.2]
 
 - Add support for `silverstripe/staticpublishqueue` ([link](https://github.com/axllent/silverstripe-trailing-slash/pull/11))
