@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.2.4]
+
+- Fixes some setups of unwrapped % in yml breaking site
+
+
 ## [2.2.3]
 
 - Add `silverstripe/staticpublishqueue` to configurable list of ignored user agents
