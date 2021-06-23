@@ -1,5 +1,4 @@
 <?php
-
 namespace Axllent\TrailingSlash\Middleware;
 
 use SilverStripe\Control\Controller;
@@ -35,7 +34,7 @@ class TrailingSlashRedirector implements HTTPMiddleware
     private static $ignore_agents = [
         'silverstripe/staticpublishqueue',
     ];
-    
+
     /**
      * Redirection status code
      *
@@ -103,10 +102,11 @@ class TrailingSlashRedirector implements HTTPMiddleware
                 $params       = $request->getVars();
                 $redirect_url = Controller::join_links($expected_url, '/');
                 $response     = new HTTPResponse();
-                $code = Config::inst()->get(
-                    TrailingSlashRedirector::class, 
+                $code         = Config::inst()->get(
+                    TrailingSlashRedirector::class,
                     'redirection_status_code'
                 );
+
                 return $response->redirect($redirect_url, $code);
             }
         }
