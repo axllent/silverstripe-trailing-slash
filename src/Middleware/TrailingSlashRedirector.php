@@ -1,4 +1,5 @@
 <?php
+
 namespace Axllent\TrailingSlash\Middleware;
 
 use SilverStripe\Control\Controller;
@@ -7,6 +8,7 @@ use SilverStripe\Control\HTTPRequest;
 use SilverStripe\Control\HTTPResponse;
 use SilverStripe\Control\Middleware\HTTPMiddleware;
 use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Environment;
 
 /**
  * Ensure that a single trailing slash is always added to the URL.
@@ -33,6 +35,13 @@ class TrailingSlashRedirector implements HTTPMiddleware
     private static $ignore_agents = [
         'silverstripe/staticpublishqueue',
     ];
+    
+    /**
+     * Redirection status code
+     *
+     * @var int
+     */
+    private static $redirection_status_code = 301;
 
     /**
      * Process request
@@ -66,7 +75,7 @@ class TrailingSlashRedirector implements HTTPMiddleware
                 return $delegate($request);
             }
 
-            $requested_url = $_SERVER['REQUEST_URI'];
+            $requested_url = Environment::getEnv('REQUEST_URI');
 
             $expected_url = rtrim(
                 Director::baseURL() . $request->getURL(), '/'
@@ -94,8 +103,11 @@ class TrailingSlashRedirector implements HTTPMiddleware
                 $params       = $request->getVars();
                 $redirect_url = Controller::join_links($expected_url, '/');
                 $response     = new HTTPResponse();
-
-                return $response->redirect($redirect_url, 301);
+                $code = Config::inst()->get(
+                    TrailingSlashRedirector::class, 
+                    'redirection_status_code'
+                );
+                return $response->redirect($redirect_url, $code);
             }
         }
 
