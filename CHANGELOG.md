@@ -2,9 +2,14 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.2.5]
+
+- Don't rely on `$_SERVER` values for redirect (thanks [wilr](https://github.com/axllent/silverstripe-trailing-slash/pull/14))
+
+
 ## [2.2.4]
 
-- Fixes some setups of unwrapped % in yml breaking site
+- Fixes some setups of unwrapped % in yaml breaking site
 
 
 ## [2.2.3]
@@ -19,7 +24,7 @@ Notable changes to this project will be documented in this file.
 
 ## [2.2.1]
 
-- Fix deprecation notice on php7.4 (switched params in `implode()` function.)
+- Fix deprecation notice on php7.4 (switched parameters in `implode()` function.)
 
 
 ## [2.2.0]
@@ -29,7 +34,7 @@ Notable changes to this project will be documented in this file.
 
 ## [2.1.3]
 
-- Better handling as dev/tasks do not return getURL() value
+- Better handling as `dev/tasks` do not return getURL() value
 
 
 ## [2.1.2]
@@ -61,4 +66,4 @@ Notable changes to this project will be documented in this file.
 
 - Support for SilverStripe 4
 - Different detection logic due to changes in `$request->getURL()`
-- Ignore urls with query parameters
+- Ignore URLs with query parameters
