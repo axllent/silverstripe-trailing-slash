@@ -1,4 +1,4 @@
-# SilverStripe Trailing Slash
+# Silverstripe Trailing Slash
 
 Ensure that a single trailing slash is always added to the URL. URLs accessed via
 Ajax, contain $_GET vars, or that contain an extension are ignored.
@@ -14,9 +14,9 @@ Ajax, contain $_GET vars, or that contain an extension are ignored.
 
 ## Requirements
 
-- SilverStripe 4.*
+- Silverstripe 4.*
 
-For SilverStripe 3, please refer to the [SilverStripe3 branch](https://github.com/axllent/silverstripe-trailing-slash/tree/silverstripe3).
+For Silverstripe 3, please refer to the [Silverstripe3 branch](https://github.com/axllent/silverstripe-trailing-slash/tree/silverstripe3).
 
 ## Installation and configuration
 
@@ -31,7 +31,7 @@ composer require axllent/silverstripe-trailing-slash
 
 By default it will ignore any `admin/` & `dev/` URLs, as well as all ajax requests.
 It also only acts on `$_GET` requests as not to interfere with any posted data, and
-ignores any url containing an extension (eg: `/contact.html`) or query parameter.
+ignores any URL containing an extension (eg: `/contact.html`) or query parameter.
 
 You can create additional "ignore_paths" by creating a yaml config
 (eg: `app/_config/trailing-slash.yml`):
