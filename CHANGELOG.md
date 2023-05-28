@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.2.6]
+
+- Add support for Silverstripe 5
+
+
 ## [2.2.5]
 
 - Don't rely on `$_SERVER` values for redirect (thanks [wilr](https://github.com/axllent/silverstripe-trailing-slash/pull/14))
