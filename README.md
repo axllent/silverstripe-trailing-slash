@@ -14,7 +14,7 @@ Ajax, contain $_GET vars, or that contain an extension are ignored.
 
 ## Requirements
 
-- Silverstripe 4.*
+- Silverstripe ^4.0 || ^ 5.0
 
 For Silverstripe 3, please refer to the [Silverstripe3 branch](https://github.com/axllent/silverstripe-trailing-slash/tree/silverstripe3).
 

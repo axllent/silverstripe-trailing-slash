@@ -1,22 +1,26 @@
 {
-	"name": "axllent/silverstripe-trailing-slash",
-	"description": "Ensure that a single trailing slash is always added to the URL",
-	"type": "silverstripe-vendormodule",
-	"homepage": "https://github.com/axllent/silverstripe-trailing-slash",
-	"keywords": ["silverstripe", "urls", "seo"],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Ralph Slooten",
-			"homepage": "http://www.axllent.org/"
-		}
-	],
-	"support": {
-		"issues": "https://github.com/axllent/silverstripe-trailing-slash/issues"
-	},
+    "name": "axllent/silverstripe-trailing-slash",
+    "description": "Ensure that a single trailing slash is always added to the URL",
+    "type": "silverstripe-vendormodule",
+    "homepage": "https://github.com/axllent/silverstripe-trailing-slash",
+    "keywords": [
+        "silverstripe",
+        "urls",
+        "seo"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ralph Slooten",
+            "homepage": "http://www.axllent.org/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/axllent/silverstripe-trailing-slash/issues"
+    },
     "require": {
-		"silverstripe/framework": "^4.0"
-	},
+        "silverstripe/framework": "^4.0 || ^5.0"
+    },
     "autoload": {
         "psr-4": {
             "Axllent\\TrailingSlash\\": "src/"
