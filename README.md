@@ -1,7 +1,9 @@
 # Silverstripe Trailing Slash
 
-Ensure that a single trailing slash is always added to the URL. URLs accessed via
-Ajax, contain $_GET vars, or that contain an extension are ignored.
+Ensure that a single trailing slash is always added to the URL.
+
+Only GET and HEAD requests are redirected, excluding URLS that contain a file extension or query parameter.
+Detected ajax requests are also ignored.
 
 
 ## Examples
