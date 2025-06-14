@@ -2,6 +2,11 @@
 
 Notable changes to this project will be documented in this file.
 
+## [2.2.8]
+
+- Add support for Silverstripe 6
+
+
 ## [2.2.7]
 
 - Disable redirection via CanonicalURLMiddleware in Silverstripe 5 as this blanket-redirects all request types including POST.
