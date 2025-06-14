@@ -5,6 +5,18 @@ Ensure that a single trailing slash is always added to the URL.
 Only GET and HEAD requests are redirected, excluding URLS that contain a file extension or query parameter.
 Detected ajax requests are also ignored.
 
+## Note:
+
+This module is no longer actively developed since the majority of the functionality is handled natively within Silverstripe 5 & 6.
+To enable trailing slashes **without** the need for this module, simply add the following to your yaml configuration:
+
+```yaml
+SilverStripe\Control\Controller:
+  add_trailing_slash: true
+```
+
+This module has been kept alive for the list of [depended modules](https://github.com/axllent/silverstripe-trailing-slash/network/dependents).
+
 
 ## Examples
 
@@ -16,7 +28,7 @@ Detected ajax requests are also ignored.
 
 ## Requirements
 
-- Silverstripe ^4.0 || ^ 5.0
+- Silverstripe ^4.0 || ^ 5.0 || ^6.0
 
 For Silverstripe 3, please refer to the [Silverstripe3 branch](https://github.com/axllent/silverstripe-trailing-slash/tree/silverstripe3).
 
